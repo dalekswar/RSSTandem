@@ -11,4 +11,4 @@
 - `npm run test` — run tests with Vitest
 - `npm run test:ui` — run tests with Vitest UI
 - `npm run test:coverage` — run tests with coverage report
-- `npm run validate-branch` — validate Git branch name Как тебе подобная запись в дневнике? Подправь 
+- `npm run validate-branch` — validate Git branch name
