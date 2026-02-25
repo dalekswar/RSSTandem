@@ -3,7 +3,11 @@ export const Paths = {
   AUTH: '/auth',
   ABOUT_US: '/about-us',
   PROFILE: '/profile',
+
   COURSES: '/courses',
+  ALL_COURSES: 'all',
+  MY_COURSES: 'my',
+
   COURSE_INFO: '/courses/:courseId',
   TOPICS: '/courses/:courseId/topics',
   TOPIC: '/courses/:courseId/:topicId',

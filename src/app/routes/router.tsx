@@ -6,12 +6,19 @@ import { AuthPage } from '../pages/auth/auth-page';
 import { ProfilePage } from '../pages/profile/profile-page';
 import { NotFoundPage } from '../pages/not-found/not-found-page';
 import { WidgetLayout } from '../components/widget-layout/widget-layout';
-import { courseInfoLoader, coursesLoader, topicLoader, topicsLoader } from '../api/loaders';
+import {
+  allCoursesLoader,
+  courseInfoLoader,
+  myCoursesLoader,
+  topicLoader,
+  topicsLoader,
+} from '../api/loaders';
 import CoursesPage from '../pages/courses/courses-page';
 import CourseInfoPage from '../pages/course-info/course-info-page';
 import TopicsPage from '../pages/topics/topics-page';
 import TopicPage from '../pages/topic/topic-page';
 import { ErrorPage } from '../pages/error/error-page';
+import { CoursesLayout } from '../components/courses-layout/courses-layout';
 
 export const router = createBrowserRouter([
   {
@@ -29,8 +36,23 @@ export const router = createBrowserRouter([
       },
       {
         path: Paths.COURSES,
-        element: <CoursesPage />,
-        loader: coursesLoader,
+        element: <CoursesLayout />,
+        children: [
+          {
+            index: true,
+            element: <Navigate to={Paths.ALL_COURSES} replace />,
+          },
+          {
+            path: Paths.ALL_COURSES,
+            element: <CoursesPage />,
+            loader: allCoursesLoader,
+          },
+          {
+            path: Paths.MY_COURSES,
+            element: <CoursesPage />,
+            loader: myCoursesLoader,
+          },
+        ],
       },
       {
         path: Paths.COURSE_INFO,

@@ -1,7 +1,11 @@
 import type { LoaderFunctionArgs } from 'react-router-dom';
 
-export const coursesLoader = async () => {
-  console.log('courses loader');
+export const allCoursesLoader = async () => {
+  console.log('all courses loader');
+};
+
+export const myCoursesLoader = async () => {
+  console.log('my courses loader');
 };
 
 export const courseInfoLoader = async (props: LoaderFunctionArgs) => {
