@@ -11,7 +11,7 @@ export const Paths = {
   COURSE_INFO: '/courses/:courseId',
   TOPICS: '/courses/:courseId/topics',
   TOPIC: '/courses/:courseId/:topicId',
-  WIDGET: '/courses/:courseId/:topicId/:widgetType',
+  WIDGET: '/courses/:courseId/:topicId/:widgetType/:widgetId',
   NOT_FOUND: '/not-found',
   OTHER_PATHS: '*',
 } as const;
