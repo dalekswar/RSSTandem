@@ -5,16 +5,19 @@ import { AboutUsPage } from '../pages/about-us/about-us-page';
 import { AuthPage } from '../pages/auth/auth-page';
 import { ProfilePage } from '../pages/profile/profile-page';
 import { NotFoundPage } from '../pages/not-found/not-found-page';
-import { CoursesPage } from '../pages/courses/courses-page';
-import { CourseInfoPage } from '../pages/course-info/course-info-page';
-import { TopicsPage } from '../pages/topics/topics-page';
-import { TopicPage } from '../pages/topic/topic-page';
 import { WidgetLayout } from '../components/widget-layout/widget-layout';
+import { courseInfoLoader, coursesLoader, topicLoader, topicsLoader } from '../api/loaders';
+import CoursesPage from '../pages/courses/courses-page';
+import CourseInfoPage from '../pages/course-info/course-info-page';
+import TopicsPage from '../pages/topics/topics-page';
+import TopicPage from '../pages/topic/topic-page';
+import { ErrorPage } from '../pages/error/error-page';
 
 export const router = createBrowserRouter([
   {
     path: Paths.ROOT,
     element: <AppLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -27,18 +30,22 @@ export const router = createBrowserRouter([
       {
         path: Paths.COURSES,
         element: <CoursesPage />,
+        loader: coursesLoader,
       },
       {
         path: Paths.COURSE_INFO,
         element: <CourseInfoPage />,
+        loader: courseInfoLoader,
       },
       {
         path: Paths.TOPICS,
         element: <TopicsPage />,
+        loader: topicsLoader,
       },
       {
         path: Paths.TOPIC,
         element: <TopicPage />,
+        loader: topicLoader,
       },
       {
         path: Paths.WIDGET,
@@ -53,6 +60,7 @@ export const router = createBrowserRouter([
   {
     path: Paths.AUTH,
     element: <AuthPage />,
+    errorElement: <ErrorPage />,
   },
   {
     path: Paths.NOT_FOUND,
@@ -60,6 +68,6 @@ export const router = createBrowserRouter([
   },
   {
     path: Paths.OTHER_PATHS,
-    element: <Navigate to={Paths.NOT_FOUND} />,
+    element: <Navigate to={Paths.NOT_FOUND} replace />,
   },
 ]);
