@@ -1,0 +1,20 @@
+:root {
+  /* ===== BACKGROUNDS ===== */
+  --color-bg: #0b0e14;
+  --color-navbar-bg: #121720;
+  --color-card-bg: rgba(255, 255, 255, 0.02);
+  --color-input-bg: rgba(0, 0, 0, 0.2);
+
+  /* ===== TEXT ===== */
+  --color-text: #f1f5f9;
+  --color-text-dim: #94a3b8;
+  --color-text-inverse: #0b0e14;
+
+  /* ===== UI Elements ===== */
+  --color-accent: #38bdf8;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-success: #10b981;
+
+  /* ===== FONTS ===== */
+  --font-primary: 'Plus Jakarta Sans', sans-serif;
+}
