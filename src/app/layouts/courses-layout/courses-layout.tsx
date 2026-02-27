@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import { Paths } from '../../routes/paths';
+import { Paths } from '../../router/paths';
 
 export function CoursesLayout() {
   return (
