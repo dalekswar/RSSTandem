@@ -1,34 +1,11 @@
-import type { FC } from 'react';
-import { Form } from 'react-router-dom';
+import { type FC } from 'react';
 import { FormRow } from '../form-row';
 import { useForm } from 'react-hook-form';
-import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-
-const registrationSchema = z
-  .object({
-    email: z.string().email('Invalid email format'),
-    login: z
-      .string()
-      .min(5, 'Login must be at least 5 characters')
-      .max(30, 'Login must be at most 30 characters')
-      .regex(/^[A-Za-z0-9_-]+$/, 'Login can contain letters, numbers, _ and - only'),
-    password: z
-      .string()
-      .min(8, 'Password must be at least 8 characters')
-      .max(30, 'Password must be at most 30 characters')
-      .regex(
-        /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d!@#$&_+.-]+$/,
-        'Password must contain at least one uppercase letter and one number, no spaces or Cyrillic'
-      ),
-    passwordConfirm: z.string(),
-  })
-  .refine(data => data.password === data.passwordConfirm, {
-    message: 'Passwords must match',
-    path: ['passwordConfirm'],
-  });
-
-type RegistrationFormValues = z.infer<typeof registrationSchema>;
+import { registrationSchema, type RegistrationFormValues } from './registration.schema';
+import { useMutation } from '@tanstack/react-query';
+import { signUpUser } from '../../../api';
+import type { ApiError, SignUpDto, SignUpSuccessResponse } from '../../../types';
 
 export const RegistrationForm: FC = () => {
   const {
@@ -36,14 +13,21 @@ export const RegistrationForm: FC = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<RegistrationFormValues>({ resolver: zodResolver(registrationSchema) });
-  console.log(errors);
+
+  const mutation = useMutation<SignUpSuccessResponse, ApiError, SignUpDto>({
+    mutationKey: ['signUpUser'],
+    mutationFn: signUpUser,
+    onSuccess: data => console.log('User registered:', data.message),
+    onError: err => console.log('Registration error:', err.message || err),
+  });
 
   function onSubmit(data: RegistrationFormValues) {
-    console.log('submit', data);
+    console.log(data);
+    mutation.mutate(data);
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Email" error={errors.email}>
         <input type="email" id="email" required {...register('email')} />
       </FormRow>
@@ -69,8 +53,10 @@ export const RegistrationForm: FC = () => {
         />
       </FormRow>
       <FormRow>
-        <button type="submit">Sign Up Now</button>
+        <button type="submit" disabled={mutation.isPending}>
+          {mutation.isPending ? 'Sending Data...' : 'Sign Up Now'}
+        </button>
       </FormRow>
-    </Form>
+    </form>
   );
 };
