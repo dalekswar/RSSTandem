@@ -20,6 +20,7 @@ import { RegisterPage } from '../../pages/auth/register/register-page';
 import { NotFoundPage } from '../../pages/not-found/not-found-page';
 import { LessonPage } from '../../pages/lesson';
 import { Dashboard } from '../../pages/dashboard';
+import { ProtectedRoute } from './protected-route';
 
 export const router = createBrowserRouter([
   {
@@ -37,7 +38,11 @@ export const router = createBrowserRouter([
       },
       {
         path: Paths.DASHBOARD,
-        element: <Dashboard />,
+        element: (
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        ),
       },
       {
         path: Paths.COURSES,
@@ -54,7 +59,11 @@ export const router = createBrowserRouter([
           },
           {
             path: Paths.MY_COURSES,
-            element: <CoursesPage />,
+            element: (
+              <ProtectedRoute>
+                <CoursesPage />
+              </ProtectedRoute>
+            ),
             loader: myCoursesLoader,
           },
         ],
@@ -66,21 +75,38 @@ export const router = createBrowserRouter([
       },
       {
         path: Paths.TOPICS,
-        element: <LessonPage />,
+        element: (
+          <ProtectedRoute>
+            <LessonPage />
+          </ProtectedRoute>
+        ),
         loader: topicsLoader,
       },
       {
         path: Paths.TOPIC,
-        element: <LessonPage />,
+        element: (
+          <ProtectedRoute>
+            <LessonPage />
+          </ProtectedRoute>
+        ),
         loader: topicLoader,
       },
       {
         path: Paths.WIDGET,
-        element: <WidgetLayout />,
+
+        element: (
+          <ProtectedRoute>
+            <WidgetLayout />
+          </ProtectedRoute>
+        ),
       },
       {
         path: Paths.PROFILE,
-        element: <ProfilePage />,
+        element: (
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
