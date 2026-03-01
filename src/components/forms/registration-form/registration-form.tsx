@@ -6,6 +6,8 @@ import { registrationSchema, type RegistrationFormValues } from './registration.
 import { useMutation } from '@tanstack/react-query';
 import { signUpUser } from '../../../api';
 import type { ApiError, SignUpDto, SignUpSuccessResponse } from '../../../types';
+import toast from 'react-hot-toast';
+import { Navigate } from 'react-router-dom';
 
 export const RegistrationForm: FC = () => {
   const {
@@ -17,8 +19,11 @@ export const RegistrationForm: FC = () => {
   const mutation = useMutation<SignUpSuccessResponse, ApiError, SignUpDto>({
     mutationKey: ['signUpUser'],
     mutationFn: signUpUser,
-    onSuccess: data => console.log('User registered:', data.message),
-    onError: err => console.log('Registration error:', err.message || err),
+    onSuccess: data => {
+      console.log(data);
+      toast.success(`Регистрация прошла успешно!`);
+    },
+    onError: err => toast.error(`${err.message || err}`),
   });
 
   function onSubmit(data: RegistrationFormValues) {
