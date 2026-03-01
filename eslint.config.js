@@ -24,10 +24,19 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-      'react-compiler/react-compiler': 'error',
       ...react.configs.recommended.rules,
       ...react.configs['jsx-runtime'].rules,
+
+      'react/function-component-definition': [
+        'error',
+        {
+          namedComponents: 'arrow-function',
+          unnamedComponents: 'arrow-function',
+        },
+      ],
+
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'react-compiler/react-compiler': 'error',
       'prettier/prettier': ['error', { endOfLine: 'auto' }],
     },
     settings: {

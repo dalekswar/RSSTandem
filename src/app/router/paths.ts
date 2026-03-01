@@ -4,6 +4,7 @@ export const Paths = {
   REGISTER: '/register',
   ABOUT_US: '/about-us',
   PROFILE: '/profile',
+  DASHBOARD: '/dashboard',
 
   COURSES: '/courses',
   ALL_COURSES: 'all',
