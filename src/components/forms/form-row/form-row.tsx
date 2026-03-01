@@ -1,5 +1,6 @@
 import type { FC, ReactElement } from 'react';
 import type { FieldError } from 'react-hook-form';
+import styles from './form-row.module.css';
 
 type Props = {
   label?: string;
@@ -9,10 +10,14 @@ type Props = {
 
 export const FormRow: FC<Props> = ({ label, error, children }) => {
   return (
-    <div>
-      {label && <label htmlFor={children.props.id}>{label}</label>}
+    <div className={styles.row}>
+      {label && (
+        <label className={styles.row__label} htmlFor={children.props.id}>
+          {label}
+        </label>
+      )}
       {children}
-      {error && <span>{error.message}</span>}
+      {error && <span className={styles.row__error}>{error.message}</span>}
     </div>
   );
 };

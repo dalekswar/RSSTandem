@@ -9,6 +9,7 @@ import type { ApiError, RegistrationSuccessResponse, SignUpDto } from '../../../
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../../redux/reducers';
+import styles from './registration-form.module.css';
 
 export const RegistrationForm: FC = () => {
   const {
@@ -34,36 +35,31 @@ export const RegistrationForm: FC = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Email" error={errors.email}>
-        <input type="email" id="email" required {...register('email')} />
+        <input type="email" id="email" placeholder="your@email.com" {...register('email')} />
       </FormRow>
+
       <FormRow label="Login" error={errors.login}>
-        <input type="text" id="login" autoComplete="login" {...register('login')} required />
+        <input type="text" id="login" placeholder="SuperUser" {...register('login')} />
       </FormRow>
+
       <FormRow label="Password" error={errors.password}>
-        <input
-          type="password"
-          id="password"
-          autoComplete="new-password"
-          required
-          {...register('password')}
-        />
+        <input type="password" id="password" placeholder="••••••••" {...register('password')} />
       </FormRow>
+
       <FormRow label="Confirm password" error={errors.passwordConfirm}>
         <input
           type="password"
           id="passwordConfirm"
-          autoComplete="new-password"
-          required
+          placeholder="••••••••"
           {...register('passwordConfirm')}
         />
       </FormRow>
-      <FormRow>
-        <button type="submit" disabled={mutation.isPending}>
-          {mutation.isPending ? 'Sending Data...' : 'Sign Up Now'}
-        </button>
-      </FormRow>
+
+      <button type="submit" className={styles.form__submit} disabled={mutation.isPending}>
+        {mutation.isPending ? 'Sending Data...' : 'Sign Up Now'}
+      </button>
     </form>
   );
 };
