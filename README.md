@@ -80,7 +80,10 @@
 ## Контакты 📩
 
 Наша команда разработки:
-
+* **Sergei Kustov** — GitHub: [@SergikEnergy](https://github.com/SergikEnergy) — **Mentor**
 * **Sofia Gerasimenko** — GitHub: [@dalekswar](https://github.com/dalekswar) — **Team Lead**
 * **Zakhar Pochuvalov** — GitHub: [@sobselena](https://github.com/sobselena)
 * **Aleksey Zaderiy** — GitHub: [@howlight](https://github.com/howlight)
+
+---
+## Деплой
