@@ -1,4 +1,3 @@
-import { type FC } from 'react';
 import { FormRow } from '../form-row';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -7,9 +6,9 @@ import { useMutation } from '@tanstack/react-query';
 import { signUpUser } from '../../../api';
 import type { ApiError, RegistrationSuccessResponse, SignUpDto } from '../../../types';
 import { useDispatch } from 'react-redux';
-import { registerUser } from '../../../redux/reducers';
-import styles from './registration-form.module.css';
 import { singleToasts } from '../../../utils/toast.util';
+import { auth } from '../../../redux/reducers';
+import { AuthForm } from '../auth-form';
 
 export const RegistrationForm = () => {
   const {
@@ -22,8 +21,7 @@ export const RegistrationForm = () => {
     mutationKey: ['signUpUser'],
     mutationFn: signUpUser,
     onSuccess: data => {
-      console.log(data);
-      dispatch(registerUser({ email: data.email, login: data.login }));
+      dispatch(auth({ login: data.login }));
       singleToasts(`Регистрация прошла успешно!`, 'success');
     },
     onError: err => singleToasts(`${err.message || err}`, 'error'),
@@ -35,7 +33,11 @@ export const RegistrationForm = () => {
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+    <AuthForm
+      onSubmit={handleSubmit(onSubmit)}
+      isPending={mutation.isPending}
+      submitMessage="Sign Up"
+    >
       <FormRow label="Email" error={errors.email}>
         <input type="email" id="email" placeholder="your@email.com" {...register('email')} />
       </FormRow>
@@ -56,10 +58,6 @@ export const RegistrationForm = () => {
           {...register('passwordConfirm')}
         />
       </FormRow>
-
-      <button type="submit" className={styles.form__submit} disabled={mutation.isPending}>
-        {mutation.isPending ? 'Sending Data...' : 'Sign Up Now'}
-      </button>
-    </form>
+    </AuthForm>
   );
 };
