@@ -1,21 +1,30 @@
 import { API_ROUTES } from '../constants';
-import type { SignUpDto } from '../types';
+import type { LoginDto, SignUpDto } from '../types';
 
-export async function signUpUser(newUser: SignUpDto) {
-  const res = await fetch(API_ROUTES.SIGN_UP, {
+export async function authUser(path: string, authData: LoginDto | SignUpDto) {
+  const res = await fetch(path, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(newUser),
+    body: JSON.stringify(authData),
   });
+
   console.log(res);
   const data = await res.json();
   console.log(data);
   if (!res.ok) {
-    const error = new Error(data.message || 'Failed to sign up');
+    const errorMessage = 'email' in authData ? 'Failed to sign up' : 'Failed to login';
+    const error = new Error(data.message || errorMessage);
     throw error;
   }
 
   return data;
+}
+export async function loginUser(authData: LoginDto) {
+  return authUser(API_ROUTES.LOGIN, authData);
+}
+
+export async function signUpUser(authData: SignUpDto) {
+  return authUser(API_ROUTES.SIGN_UP, authData);
 }

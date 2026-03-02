@@ -8,8 +8,8 @@ type Props = {
 };
 
 export const ProtectedRoute = ({ children }: Props) => {
-  const { email, login } = useUserSelector();
-  const isAuthorized = !!email && !!login;
+  const { login } = useUserSelector();
+  const isAuthorized = !!login;
 
   if (!isAuthorized) {
     return <Navigate to={Paths.ABOUT_US} replace />;
