@@ -1,3 +1,3 @@
-export function Loader() {
+export const Loader = () => {
   return <section className="loader">Loading...</section>;
-}
+};
