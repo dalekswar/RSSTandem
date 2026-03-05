@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import styles from './link-button.module.css';
 
 type LinkButtonProperties = {
-  className?: string;
   to: string;
   children: React.ReactNode;
+  className?: string;
 };
 
 export function LinkButton({ to, children, className = '' }: LinkButtonProperties) {
