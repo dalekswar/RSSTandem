@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import { loginUser } from '../../../api';
+
 import type { LoginRequest } from '../../../types';
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
@@ -10,6 +10,7 @@ import { singleToast } from '../../../utils/toast.util';
 import { FormRow } from '../form-row';
 import { AuthForm } from '../auth-form';
 import { useState } from 'react';
+import { loginUser } from '../../../api';
 
 export const LoginForm = () => {
   const [loginInput, setLoginInput] = useState('');
@@ -19,10 +20,10 @@ export const LoginForm = () => {
     mutationKey: ['loginUser'],
     mutationFn: loginUser,
     onSuccess: data => {
-      dispatch(auth({ login: loginInput }));
       singleToast(`${data.message}`, 'success');
+      dispatch(auth({ accessToken: data.access }));
     },
-    onError: err => singleToast(`${err.message || err}`, 'error'),
+    onError: error => singleToast(error.message, 'error'),
   });
 
   function onSubmit(authData: LoginRequest) {

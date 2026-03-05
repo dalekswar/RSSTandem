@@ -6,8 +6,8 @@ type Props = {
   children: ReactNode;
 };
 export const PublicOnlyRoute = ({ children }: Props) => {
-  const { login } = useUserSelector();
-  const isAuthorized = !!login;
+  const { accessToken } = useUserSelector();
+  const isAuthorized = !!accessToken;
 
   if (isAuthorized) {
     return <Navigate to={Paths.ABOUT_US} replace />;

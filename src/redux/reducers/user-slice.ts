@@ -1,25 +1,26 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import type { UserStateType } from '../../types';
+import type { accessToken } from '../../types';
 
-const authDataFromStorage = localStorage.getItem('authData');
-const initialState: UserStateType = authDataFromStorage
-  ? JSON.parse(authDataFromStorage)
+const accessTokenFromStorage = localStorage.getItem('accessToken');
+const initialState: accessToken = accessTokenFromStorage
+  ? JSON.parse(accessTokenFromStorage)
   : {
-      login: '',
+      accessToken: null,
     };
 
 const userSlice = createSlice({
   name: 'user',
   initialState: initialState,
   reducers: {
-    auth(state, action: PayloadAction<Pick<UserStateType, 'login'>>) {
-      state.login = action.payload.login;
+    auth(state, action: PayloadAction<accessToken>) {
+      state.accessToken = action.payload.accessToken;
 
-      localStorage.setItem('authData', JSON.stringify(action.payload));
+      localStorage.setItem('accessToken', JSON.stringify(action.payload));
     },
 
     logout(state) {
-      state.login = '';
+      state.accessToken = null;
+      localStorage.removeItem('accessToken');
     },
   },
 });

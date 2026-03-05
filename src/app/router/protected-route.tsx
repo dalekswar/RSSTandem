@@ -8,9 +8,9 @@ type Props = {
 };
 
 export const AuthorizedOnlyRoute = ({ children }: Props) => {
-  const { login } = useUserSelector();
+  const { accessToken } = useUserSelector();
 
-  const isAuthorized = !!login;
+  const isAuthorized = !!accessToken;
 
   if (!isAuthorized) {
     return <Navigate to={Paths.REGISTER} replace />;

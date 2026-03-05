@@ -4,6 +4,9 @@ export type ApiError = {
   error?: string;
 };
 export type HealthResponse = string;
+export type accessToken = {
+  accessToken: string | null;
+};
 
 export type SignUpRequest = {
   email: string;
@@ -38,6 +41,7 @@ export type LoginRequest = {
 export type LoginSuccessResponse = {
   statusText: string;
   message: string;
+  access: string;
 };
 
 export type UserProfileResponse = {

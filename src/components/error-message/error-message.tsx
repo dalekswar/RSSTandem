@@ -2,7 +2,7 @@ type Props = {
   error: Error;
 };
 
-export function ErrorMessage(props: Props) {
+export const ErrorMessage = (props: Props) => {
   return (
     <div className="error">
       <p className="error__message">{props.error.message}</p>
@@ -14,4 +14,4 @@ export function ErrorMessage(props: Props) {
       </button>
     </div>
   );
-}
+};
