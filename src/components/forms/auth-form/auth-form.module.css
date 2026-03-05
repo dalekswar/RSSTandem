@@ -4,7 +4,7 @@
   width: 100%;
 }
 
-.form__submit {
+.formSubmit {
   width: 100%;
   background: var(--color-accent);
   color: var(--color-text-inverse);
@@ -19,17 +19,17 @@
   font-family: var(--font-primary);
 }
 
-.form__submit:hover:not(:disabled) {
+.formSubmit:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: var(--shadow-accent);
   background-color: var(--color-accent-hover);
 }
 
-.form__submit:active:not(:disabled) {
+.formSubmit:active:not(:disabled) {
   transform: translateY(0);
 }
 
-.form__submit:disabled {
+.formSubmit:disabled {
   background: var(--color-text-dim);
   opacity: 0.6;
   cursor: wait;

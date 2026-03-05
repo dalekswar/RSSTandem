@@ -12,7 +12,7 @@ export const AuthForm = ({ children, onSubmit, isPending, submitMessage }: Props
     <form className={styles.form} onSubmit={onSubmit}>
       {children}
 
-      <button type="submit" className={styles.form__submit} disabled={isPending}>
+      <button type="submit" className={styles.formSubmit} disabled={isPending}>
         {isPending ? 'Sending Data...' : submitMessage}
       </button>
     </form>

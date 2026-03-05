@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 
-export function ErrorPage() {
+export const ErrorPage = () => {
   return (
     <section className="error">
       <p>Something went wrong!</p>
@@ -9,4 +9,4 @@ export function ErrorPage() {
       </button>
     </section>
   );
-}
+};

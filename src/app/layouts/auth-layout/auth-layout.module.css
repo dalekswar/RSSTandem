@@ -10,7 +10,7 @@
   font-family: var(--font-primary);
 }
 
-.auth__card {
+.authCard {
   background: var(--color-card-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -24,7 +24,7 @@
   animation: fadeIn var(--transition-slow);
 }
 
-.auth__card::before {
+.authCard::before {
   content: '';
   position: absolute;
   top: 0;
@@ -35,7 +35,7 @@
   background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
 }
 
-.auth__logo {
+.authLogo {
   display: block;
   text-align: center;
   font-weight: 800;
@@ -46,7 +46,7 @@
   letter-spacing: 1px;
 }
 
-.auth__title {
+.authTitle {
   font-size: 26px;
   margin: 0 0 8px 0;
   color: var(--color-text);
@@ -54,28 +54,28 @@
   text-align: center;
 }
 
-.auth__subtitle {
+.authSubtitle {
   color: var(--color-text-dim);
   font-size: 14px;
   margin: 0 0 32px 0;
   text-align: center;
 }
 
-.auth__footer {
+.authFooter {
   margin-top: 30px;
   text-align: center;
   font-size: 13px;
   color: var(--color-text-dim);
 }
 
-.auth__link {
+.authLink {
   color: var(--color-text);
   text-decoration: none;
   font-weight: 600;
   transition: color var(--transition-fast);
 }
 
-.auth__link:hover {
+.authLink:hover {
   color: var(--color-accent);
 }
 

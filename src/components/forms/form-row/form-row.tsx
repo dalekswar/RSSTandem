@@ -12,12 +12,12 @@ export const FormRow = ({ label, error, children }: Props) => {
   return (
     <div className={styles.row}>
       {label && (
-        <label className={styles.row__label} htmlFor={children.props.id}>
+        <label className={styles.rowLabel} htmlFor={children.props.id}>
           {label}
         </label>
       )}
       {children}
-      {error && <span className={styles.row__error}>{error.message}</span>}
+      {error && <span className={styles.rowError}>{error.message}</span>}
     </div>
   );
 };

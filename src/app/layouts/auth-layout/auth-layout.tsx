@@ -21,17 +21,17 @@ export const AuthLayout = ({
 }: Props) => {
   return (
     <div className={styles.auth}>
-      <section className={styles.auth__card}>
-        <div className={styles.auth__logo}>CodeMind</div>
+      <section className={styles.authCard}>
+        <div className={styles.authLogo}>CodeMind</div>
 
-        <h1 className={styles.auth__title}>{title}</h1>
-        <p className={styles.auth__subtitle}>{subtitle}</p>
+        <h1 className={styles.authTitle}>{title}</h1>
+        <p className={styles.authSubtitle}>{subtitle}</p>
 
         {children}
 
-        <p className={styles.auth__footer}>
+        <p className={styles.authFooter}>
           {footerText}{' '}
-          <Link to={footerLinkTo} className={styles.auth__link}>
+          <Link to={footerLinkTo} className={styles.authLink}>
             {footerLinkText}
           </Link>
         </p>
