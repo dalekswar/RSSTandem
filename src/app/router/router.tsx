@@ -19,7 +19,7 @@ import { WidgetLayout } from '../layouts/widget-layout/widget-layout';
 import { ProfilePage } from '../../pages/profile/profile-page';
 import { LoginPage } from '../../pages/auth/login/login-page';
 import { RegisterPage } from '../../pages/auth/register/register-page';
-import { NotFoundPage } from '../../pages/not-found/not-found-page';
+import { NotFoundPage } from '../../pages/not-found';
 
 export const router = createBrowserRouter([
   {
