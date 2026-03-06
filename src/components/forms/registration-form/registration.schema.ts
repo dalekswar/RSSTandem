@@ -1,25 +1,23 @@
 import { z } from 'zod';
+import { ERROR_MESSAGES, LOGIN, PASSWORD } from '../../../constants/auth-data';
 
 export const registrationSchema = z
   .object({
     email: z.string().email('Invalid email format'),
     login: z
       .string()
-      .min(5, 'Login must be at least 5 characters')
-      .max(30, 'Login must be at most 30 characters')
-      .regex(/^[A-Za-z0-9_-]+$/, 'Login can contain letters, numbers, _ and - only'),
+      .min(LOGIN.MIN_LENGTH, ERROR_MESSAGES.LOGIN_MIN)
+      .max(LOGIN.MAX_LENGTH, ERROR_MESSAGES.LOGIN_MAX)
+      .regex(LOGIN.PATTERN, ERROR_MESSAGES.LOGIN_PATTERN),
     password: z
       .string()
-      .min(8, 'Password must be at least 8 characters')
-      .max(30, 'Password must be at most 30 characters')
-      .regex(
-        /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d!@#$&_+.-]+$/,
-        'Password must contain at least one uppercase letter and one number, no spaces or Cyrillic'
-      ),
+      .min(PASSWORD.MIN_LENGTH, ERROR_MESSAGES.PASSWORD_MIN)
+      .max(PASSWORD.MAX_LENGTH, ERROR_MESSAGES.PASSWORD_MAX)
+      .regex(PASSWORD.PATTERN, ERROR_MESSAGES.PASSWORD_PATTERN),
     passwordConfirm: z.string(),
   })
   .refine((data) => data.password === data.passwordConfirm, {
-    message: 'Passwords must match',
+    message: ERROR_MESSAGES.PASSWORD_MISMATCH_MESSAGE,
     path: ['passwordConfirm'],
   });
 
