@@ -1,0 +1,20 @@
+.linkButton {
+  display: inline-block;
+  padding: 16px 32px;
+  border-radius: 14px;
+
+  background-color: var(--color-accent);
+
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--color-text-inverse);
+
+  transition: 0.2s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .linkButton:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+}
