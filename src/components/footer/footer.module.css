@@ -1,0 +1,85 @@
+.footer {
+  width: 100%;
+  padding: 12px 0;
+  background: rgba(18, 23, 32, 0.2);
+  backdrop-filter: blur(4px);
+  border-top: 1px solid var(--color-line);
+  font-family: var(--font-primary);
+  margin-top: auto;
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer__brand_box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.footer__rss {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--color-accent);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.footer__copy {
+  font-size: 11px;
+  color: var(--color-text-dim);
+  opacity: 0.7;
+}
+
+.footer__select_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer__select {
+  background: var(--color-input-bg);
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  color: var(--color-text);
+  font-size: 12px;
+  padding: 4px 8px;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color var(--transition-fast);
+}
+
+.footer__select:focus {
+  border-color: var(--color-accent);
+}
+
+.footer__select option {
+  background: var(--color-navbar-bg);
+  color: var(--color-text);
+}
+
+.footer__gh_link {
+  color: var(--color-text-dim);
+  transition: color var(--transition-fast);
+}
+
+.footer__gh_link:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 500px) {
+  .footer__container {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
