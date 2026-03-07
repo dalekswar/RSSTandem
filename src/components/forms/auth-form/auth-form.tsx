@@ -1,12 +1,12 @@
 import { type ReactNode } from 'react';
 import styles from './auth-form.module.css';
 
-interface Props {
+type Props = {
   children: ReactNode;
   onSubmit: () => void;
   isLoading: boolean;
   submitMessage: string;
-}
+};
 export const AuthForm = ({ children, onSubmit, isLoading, submitMessage }: Props) => {
   return (
     <form className={styles.form} onSubmit={onSubmit}>

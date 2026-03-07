@@ -45,6 +45,8 @@ export default tseslint.config(
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'react-compiler/react-compiler': 'error',
       'prettier/prettier': ['error', { endOfLine: 'auto' }],
+      '@typescript-eslint/no-empty-interface': 'error',
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
     },
     settings: {
       react: {
