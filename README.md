@@ -71,3 +71,5 @@ export default defineConfig([
   },
 ]);
 ```
+## Deploy
+[code-mind-one.vercel.app](https://code-mind-one.vercel.app)
