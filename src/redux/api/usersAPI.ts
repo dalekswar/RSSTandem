@@ -35,9 +35,11 @@ export const usersApi = createApi({
       onQueryStarted: async (_, { queryFulfilled }) => {
         try {
           const { data } = await queryFulfilled;
-          singleToast(data.message, 'success');
-        } catch (error) {
-          singleToast((error as { data: ApiError })?.data?.message || 'Failed to sign up', 'error');
+          console.log(data);
+          singleToast('Successfully signed up!', 'success');
+        } catch (apiError) {
+          const { error } = apiError as { error: { data: ApiError } };
+          singleToast(error.data.message || 'Failed to sign up', 'error');
         }
       },
     }),
@@ -52,8 +54,9 @@ export const usersApi = createApi({
           const { data } = await queryFulfilled;
           dispatch(auth({ accessToken: data.accessToken }));
           singleToast(data.message, 'success');
-        } catch (error) {
-          singleToast((error as { data: ApiError })?.data?.message || 'Failed to login', 'error');
+        } catch (apiError) {
+          const { error } = apiError as { error: { data: ApiError } };
+          singleToast(error.data.message || 'Failed to login', 'error');
         }
       },
     }),
