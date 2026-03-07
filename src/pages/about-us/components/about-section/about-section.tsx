@@ -12,7 +12,7 @@ export const AboutSection = () => (
       <h2 className={styles.aboutTitle}>{ABOUT_TEXTS.title}</h2>
       <p className={styles.aboutMotivation}>{ABOUT_TEXTS.motivation}</p>
       <ul className={styles.featuresList}>
-        {ABOUT_TEXTS.features.map(feature => (
+        {ABOUT_TEXTS.features.map((feature) => (
           <li key={feature} className={styles.featuresItem}>
             {feature}
           </li>

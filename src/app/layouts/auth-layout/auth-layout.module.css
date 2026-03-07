@@ -1,0 +1,91 @@
+.auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  background-image: radial-gradient(circle at center, rgba(56, 189, 248, 0.05) 0%, transparent 70%);
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: var(--font-primary);
+}
+
+.authCard {
+  background: var(--color-card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-line);
+  width: 100%;
+  max-width: 480px;
+  padding: 48px;
+  border-radius: var(--radius-xl);
+  position: relative;
+  box-shadow: var(--shadow-main);
+  animation: fadeIn var(--transition-slow);
+}
+
+.authCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+}
+
+.authLogo {
+  display: block;
+  text-align: center;
+  font-weight: 800;
+  font-size: 22px;
+  color: var(--color-accent);
+  margin-bottom: 32px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.authTitle {
+  font-size: 26px;
+  margin: 0 0 8px 0;
+  color: var(--color-text);
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+.authSubtitle {
+  color: var(--color-text-dim);
+  font-size: 14px;
+  margin: 0 0 32px 0;
+  text-align: center;
+}
+
+.authFooter {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-text-dim);
+}
+
+.authLink {
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.authLink:hover {
+  color: var(--color-accent);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

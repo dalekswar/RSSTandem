@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { Paths } from '../../router/paths';
 
-export function CoursesLayout() {
+export const CoursesLayout = () => {
   return (
     <section className="courses">
       <nav>
@@ -11,4 +11,4 @@ export function CoursesLayout() {
       <Outlet />
     </section>
   );
-}
+};

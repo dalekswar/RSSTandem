@@ -12,14 +12,16 @@ import {
   topicLoader,
   topicsLoader,
 } from '../../api/loaders';
-import CourseInfoPage from '../../pages/course-info/course-info-page';
-import TopicsPage from '../../pages/topics/topics-page';
-import TopicPage from '../../pages/topic/topic-page';
+
 import { WidgetLayout } from '../layouts/widget-layout/widget-layout';
 import { ProfilePage } from '../../pages/profile/profile-page';
 import { LoginPage } from '../../pages/auth/login/login-page';
 import { RegisterPage } from '../../pages/auth/register/register-page';
-import { NotFoundPage } from '../../pages/not-found';
+import { NotFoundPage } from '../../pages/not-found/not-found-page';
+import { LessonPage } from '../../pages/lesson';
+import { Dashboard } from '../../pages/dashboard';
+import { AlreadyLoggedInRoute } from './public-only-route';
+import { AuthorizedOnlyRoute } from './protected-route';
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +38,14 @@ export const router = createBrowserRouter([
         element: <AboutUsPage />,
       },
       {
+        path: Paths.DASHBOARD,
+        element: (
+          <AuthorizedOnlyRoute>
+            <Dashboard />
+          </AuthorizedOnlyRoute>
+        ),
+      },
+      {
         path: Paths.COURSES,
         element: <CoursesLayout />,
         children: [
@@ -50,44 +60,73 @@ export const router = createBrowserRouter([
           },
           {
             path: Paths.MY_COURSES,
-            element: <CoursesPage />,
+            element: (
+              <AuthorizedOnlyRoute>
+                <CoursesPage />
+              </AuthorizedOnlyRoute>
+            ),
             loader: myCoursesLoader,
           },
         ],
       },
       {
         path: Paths.COURSE_INFO,
-        element: <CourseInfoPage />,
+        element: <LessonPage />,
         loader: courseInfoLoader,
       },
       {
         path: Paths.TOPICS,
-        element: <TopicsPage />,
+        element: (
+          <AuthorizedOnlyRoute>
+            <LessonPage />
+          </AuthorizedOnlyRoute>
+        ),
         loader: topicsLoader,
       },
       {
         path: Paths.TOPIC,
-        element: <TopicPage />,
+        element: (
+          <AuthorizedOnlyRoute>
+            <LessonPage />
+          </AuthorizedOnlyRoute>
+        ),
         loader: topicLoader,
       },
       {
         path: Paths.WIDGET,
-        element: <WidgetLayout />,
+
+        element: (
+          <AuthorizedOnlyRoute>
+            <WidgetLayout />
+          </AuthorizedOnlyRoute>
+        ),
       },
       {
         path: Paths.PROFILE,
-        element: <ProfilePage />,
+        element: (
+          <AuthorizedOnlyRoute>
+            <ProfilePage />
+          </AuthorizedOnlyRoute>
+        ),
       },
     ],
   },
   {
     path: Paths.LOGIN,
-    element: <LoginPage />,
+    element: (
+      <AlreadyLoggedInRoute>
+        <LoginPage />
+      </AlreadyLoggedInRoute>
+    ),
     errorElement: <ErrorPage />,
   },
   {
     path: Paths.REGISTER,
-    element: <RegisterPage />,
+    element: (
+      <AlreadyLoggedInRoute>
+        <RegisterPage />
+      </AlreadyLoggedInRoute>
+    ),
     errorElement: <ErrorPage />,
   },
   {

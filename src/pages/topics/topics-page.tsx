@@ -1,4 +1,3 @@
-function TopicsPage() {
+export const TopicsPage = () => {
   return <section className="topics">Topics Page</section>;
-}
-export default TopicsPage;
+};

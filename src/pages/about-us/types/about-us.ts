@@ -1,14 +1,14 @@
-export type Direction = {
+export interface Direction {
   id: number;
   icon: string;
   tag: string;
   title: string;
   description: string;
-};
+}
 
-export type Review = {
+export interface Review {
   id: number;
   name: string;
   info: string;
   text: string;
-};
+}

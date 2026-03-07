@@ -13,8 +13,26 @@
 
   /* ===== UI Elements ===== */
   --color-accent: #38bdf8;
+  --color-accent-hover: #7dd3fc;
   --color-line: rgba(255, 255, 255, 0.08);
   --color-success: #10b981;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+
+  /* ===== BORDER RADIUS ===== */
+  --radius-xl: 24px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+
+  /* ===== SHADOWS ===== */
+  --shadow-main: 0 40px 100px -20px rgba(0, 0, 0, 0.5);
+  --shadow-accent: 0 10px 20px rgba(56, 189, 248, 0.2);
+
+  /* ===== ANIMATIONS ===== */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* ===== Gradients ===== */
   --color-hero-bg: radial-gradient(circle at top, rgba(56, 189, 248, 0.05) 0%, transparent 70%);

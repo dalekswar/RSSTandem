@@ -28,7 +28,7 @@ export const ReviewsSection = () => (
         1024: { slidesPerView: 3 },
       }}
     >
-      {reviews.map(review => (
+      {reviews.map((review) => (
         <SwiperSlide key={review.id}>
           <ReviewCard {...review} />
         </SwiperSlide>

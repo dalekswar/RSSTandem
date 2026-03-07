@@ -1,0 +1,36 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formSubmit {
+  width: 100%;
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  border: none;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all var(--transition-normal);
+  font-family: var(--font-primary);
+}
+
+.formSubmit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-accent);
+  background-color: var(--color-accent-hover);
+}
+
+.formSubmit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.formSubmit:disabled {
+  background: var(--color-text-dim);
+  opacity: 0.6;
+  cursor: wait;
+}

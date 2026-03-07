@@ -34,7 +34,7 @@ export const Footer = () => {
             value={selectedGh}
             onChange={handleSelectChange}
           >
-            {team.map(member => (
+            {team.map((member) => (
               <option key={member.gh} value={member.gh}>
                 {member.role}: {member.name}
               </option>

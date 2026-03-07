@@ -12,7 +12,7 @@ export const DirectionsSection = () => (
       {DIRECTIONS_TEXTS.title}
     </h2>
     <ul className={styles.directionsList}>
-      {directions.map(direction => (
+      {directions.map((direction) => (
         <li key={direction.id}>
           <DirectionCard {...direction} />
         </li>
