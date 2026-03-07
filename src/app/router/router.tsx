@@ -20,7 +20,7 @@ import { RegisterPage } from '../../pages/auth/register/register-page';
 import { NotFoundPage } from '../../pages/not-found/not-found-page';
 import { LessonPage } from '../../pages/lesson';
 import { Dashboard } from '../../pages/dashboard';
-import { PublicOnlyRoute } from './public-only-route';
+import { AlreadyLoggedInRoute } from './public-only-route';
 import { AuthorizedOnlyRoute } from './protected-route';
 
 export const router = createBrowserRouter([
@@ -114,18 +114,18 @@ export const router = createBrowserRouter([
   {
     path: Paths.LOGIN,
     element: (
-      <PublicOnlyRoute>
+      <AlreadyLoggedInRoute>
         <LoginPage />
-      </PublicOnlyRoute>
+      </AlreadyLoggedInRoute>
     ),
     errorElement: <ErrorPage />,
   },
   {
     path: Paths.REGISTER,
     element: (
-      <PublicOnlyRoute>
+      <AlreadyLoggedInRoute>
         <RegisterPage />
-      </PublicOnlyRoute>
+      </AlreadyLoggedInRoute>
     ),
     errorElement: <ErrorPage />,
   },

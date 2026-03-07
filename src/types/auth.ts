@@ -3,55 +3,54 @@ export interface ApiError {
   message: string;
   error?: string;
 }
+
 export type HealthResponse = string;
-export interface accessToken {
+
+export interface AccessToken {
   accessToken: string | null;
 }
 
-export interface SignUpRequest {
-  email: string;
+export interface LoginData {
   login: string;
+}
+
+export interface EmailData {
+  email: string;
+}
+
+export interface PasswordData {
   password: string;
 }
 
-export interface SignUpSuccessResponse {
+export type AuthData = LoginData & PasswordData;
+
+export type RegistrationData = LoginData & EmailData & PasswordData;
+
+export type SignUpRequest = RegistrationData;
+
+export type LoginRequest = AuthData;
+
+export interface AuthMessageResponse {
   statusText: string;
   message: string;
 }
 
-export interface RegistrationSuccessResponse {
-  id: number;
-  email: string;
-  login: string;
-  firstName: string | null;
-  lastName: string | null;
-  createdAt: string;
-  updatedAt: string;
-}
-export interface UserStateType {
-  email: string;
-  login: string;
-}
-
-export interface LoginRequest {
-  login: string;
-  password: string;
-}
-
-export interface LoginSuccessResponse {
-  statusText: string;
-  message: string;
+export type LoginSuccessResponse = AuthMessageResponse & {
   access: string;
-}
+};
 
-export interface UserProfileResponse {
-  id: string;
-  email: string;
+export interface User {
+  id: number | string;
   login: string;
+  email: string;
+  firstName?: string | null;
+  lastName?: string | null;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
-export interface UpdateUser {
-  email?: string;
-  login?: string;
-  password?: string;
-}
+export type UserStateType = Pick<User, 'email' | 'login'>;
+
+export type UserProfileResponse = Pick<User, 'id' | 'email' | 'login'>;
+
+export type UpdateUser = Partial<RegistrationData>;

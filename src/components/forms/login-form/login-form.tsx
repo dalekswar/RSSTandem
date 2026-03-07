@@ -1,5 +1,4 @@
 import type { ApiError, LoginRequest } from '../../../types';
-import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { loginSchema } from './login.schema';
@@ -8,9 +7,10 @@ import { singleToast } from '../../../utils/toast.util';
 import { FormRow } from '../form-row';
 import { AuthForm } from '../auth-form';
 import { useLoginUserMutation } from '../../../redux/api/usersAPI';
+import { useAppDispatch } from '../../../redux/hooks';
 
 export const LoginForm = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [loginUser, { isLoading }] = useLoginUserMutation();
 
   const {

@@ -5,12 +5,12 @@ import type { ReactNode } from 'react';
 interface Props {
   children: ReactNode;
 }
-export const PublicOnlyRoute = ({ children }: Props) => {
+export const AlreadyLoggedInRoute = ({ children }: Props) => {
   const { accessToken } = useUserSelector();
   const isAuthorized = !!accessToken;
 
   if (isAuthorized) {
-    return <Navigate to={Paths.ABOUT_US} replace />;
+    return <Navigate to={Paths.ROOT} replace />;
   }
 
   return children;

@@ -3,9 +3,9 @@ import type { FieldError } from 'react-hook-form';
 import styles from './form-row.module.css';
 
 interface Props {
+  children: ReactElement<{ id?: string }>;
   label?: string;
   error?: FieldError;
-  children: ReactElement<{ id?: string }>;
 }
 
 export const FormRow = ({ label, error, children }: Props) => {
