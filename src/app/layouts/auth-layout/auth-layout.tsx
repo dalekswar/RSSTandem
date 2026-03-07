@@ -2,14 +2,14 @@ import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './auth-layout.module.css';
 
-interface Props {
+type Props = {
   children: ReactNode;
   title: string;
   subtitle: string;
   footerText: string;
   footerLinkText: string;
   footerLinkTo: string;
-}
+};
 
 export const AuthLayout = ({
   children,

@@ -1,13 +1,13 @@
-interface BaseUserData {
+type BaseUserData = {
   login: string;
   email: string;
   password: string;
-}
-export interface ApiError {
+};
+export type ApiError = {
   statusCode: number;
   message: string;
   error?: string;
-}
+};
 
 export type UserPersonalData = Omit<BaseUserData, 'password'> & {
   accessToken: string | null;
@@ -28,16 +28,16 @@ export type SignUpRequest = RegistrationData;
 
 export type LoginRequest = AuthData;
 
-export interface AuthMessageResponse {
+export type AuthMessageResponse = {
   statusText: string;
   message: string;
-}
+};
 
 export type LoginSuccessResponse = AuthMessageResponse & {
   access: string;
 };
 
-export interface User {
+export type User = {
   id: number | string;
   login: string;
   email: string;
@@ -45,7 +45,7 @@ export interface User {
   lastName?: string | null;
   createdAt?: string;
   updatedAt?: string;
-}
+};
 
 export type UserStateType = Pick<User, 'email' | 'login'>;
 

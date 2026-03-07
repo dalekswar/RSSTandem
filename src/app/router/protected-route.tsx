@@ -4,9 +4,9 @@ import { Navigate } from 'react-router-dom';
 import { Paths } from './paths';
 import { useIsAuth } from '../../redux/hooks/useIsAuth';
 
-interface Props {
+type Props = {
   children: ReactNode;
-}
+};
 
 export const AuthorizedOnlyRoute = ({ children }: Props) => {
   const isAuth = useIsAuth();

@@ -1,4 +1,5 @@
 import { Toaster } from 'react-hot-toast';
+import { AUTOCLOSE_NOTIFICATION_DELAY } from '../../constants/toaster';
 
 export const AppToaster = () => {
   return (
@@ -8,14 +9,14 @@ export const AppToaster = () => {
       containerStyle={{ margin: '8px' }}
       toastOptions={{
         success: {
-          duration: 3000,
+          duration: AUTOCLOSE_NOTIFICATION_DELAY,
           iconTheme: {
             primary: 'var(--color-success)',
             secondary: '#fff',
           },
         },
         error: {
-          duration: 3000,
+          duration: AUTOCLOSE_NOTIFICATION_DELAY,
           iconTheme: {
             primary: '#ef4444',
             secondary: '#fff',
