@@ -8,14 +8,14 @@ export const AppToaster = () => {
       containerStyle={{ margin: '8px' }}
       toastOptions={{
         success: {
-          duration: 3000,
+          duration: 5000,
           iconTheme: {
             primary: 'var(--color-success)',
             secondary: '#fff',
           },
         },
         error: {
-          duration: 3000,
+          duration: 5000,
           iconTheme: {
             primary: '#ef4444',
             secondary: '#fff',

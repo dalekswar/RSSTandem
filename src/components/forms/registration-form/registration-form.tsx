@@ -2,12 +2,10 @@ import { FormRow } from '../form-row';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { registrationSchema, type RegistrationFormValues } from './registration.schema';
-import { singleToast } from '../../../utils/toast.util';
 import { AuthForm } from '../auth-form';
 import { useNavigate } from 'react-router-dom';
 import { Paths } from '../../../app/router';
 import { useSignUpUserMutation } from '../../../redux/api/usersAPI';
-import type { ApiError } from '../../../types';
 
 export const RegistrationForm = () => {
   const {
@@ -19,14 +17,8 @@ export const RegistrationForm = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (authData: RegistrationFormValues) => {
-    try {
-      const data = await signUpUser(authData).unwrap();
-      singleToast(data.message, 'success');
-      navigate(Paths.LOGIN);
-      singleToast(`Регистрация прошла успешно!`, 'success');
-    } catch (error) {
-      singleToast((error as { data: ApiError })?.data?.message || 'Failed to sign up', 'error');
-    }
+    await signUpUser(authData);
+    navigate(Paths.LOGIN);
   };
 
   return (
