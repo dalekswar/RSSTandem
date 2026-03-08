@@ -1,7 +1,6 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { ErrorPage } from '../../pages/error/error-page';
 import { AppLayout } from '../layouts/app-layout/app-layout';
-import { Paths } from './paths';
 import { AboutUsPage } from '../../pages/about-us';
 import { CoursesLayout } from '../layouts/courses-layout/courses-layout';
 import CoursesPage from '../../pages/courses/courses-page';
@@ -22,6 +21,7 @@ import { LessonPage } from '../../pages/lesson';
 import { Dashboard } from '../../pages/dashboard';
 import { AlreadyLoggedInRoute } from './public-only-route';
 import { AuthorizedOnlyRoute } from './protected-route';
+import { Paths } from '../../constants/paths';
 
 export const router = createBrowserRouter([
   {

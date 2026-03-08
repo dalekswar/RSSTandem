@@ -1,9 +1,4 @@
-export const PATH_PARAMS = {
-  COURSE_ID: ':courseId',
-  TOPIC_ID: ':topicId',
-  WIDGET_TYPE: ':widgetType',
-  WIDGET_ID: ':widgetId',
-} as const;
+import { MAX_CRUMBS_DEPTH, Paths, TOPICS_INDEX } from '../constants/paths';
 
 type Crumb = {
   name: string;
@@ -13,23 +8,32 @@ type Crumb = {
 export const createCrumbsPath = (pathname: string): Crumb[] => {
   const pathnameParams = pathname.split('/').filter(Boolean);
 
-  const crumbs: Crumb[] = [];
+  const crumbs: Crumb[] = [{ name: 'courses', path: Paths.COURSES }];
+  if (pathnameParams[0] === 'courses') {
+    pathnameParams
+      .slice(1, MAX_CRUMBS_DEPTH)
+      .filter((value) => value !== Paths.MY_COURSES && value !== Paths.ALL_COURSES)
+      .forEach((param, index) => {
+        const path = '/' + pathnameParams.slice(0, index + 2).join('/');
+        if (index === TOPICS_INDEX - 1 && param !== 'topics') {
+          crumbs.push({
+            name: 'topics',
+            path: '/' + [...pathnameParams.slice(0, TOPICS_INDEX), 'topics'].join('/'),
+          });
+        }
+        if (index + 1 === MAX_CRUMBS_DEPTH - 1) {
+          crumbs.push({
+            name: param,
+            path: '/' + pathnameParams.slice(0, index + 3).join('/'),
+          });
+          return;
+        }
 
-  pathnameParams
-    .filter((value) => value !== 'my' && value !== 'all')
-    .forEach((param, index) => {
-      const path = '/' + pathnameParams.slice(0, index + 1).join('/');
-      if (index === 2 && param !== 'topics') {
         crumbs.push({
-          name: 'topics',
-          path: '/' + [...pathnameParams.slice(0, 2), 'topics'].join('/'),
+          name: param,
+          path,
         });
-      }
-      crumbs.push({
-        name: param,
-        path,
       });
-    });
-
+  }
   return crumbs;
 };

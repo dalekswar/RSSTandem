@@ -4,8 +4,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { registrationSchema, type RegistrationFormValues } from './registration.schema';
 import { AuthForm } from '../auth-form';
 import { useNavigate } from 'react-router-dom';
-import { Paths } from '../../../app/router';
 import { useSignUpUserMutation } from '../../../redux/api/usersAPI';
+import { Paths } from '../../../constants';
 
 export const RegistrationForm = () => {
   const {

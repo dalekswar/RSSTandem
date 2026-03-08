@@ -1,6 +1,6 @@
 import { RegistrationForm } from '../../../components/forms/registration-form';
 import { AuthLayout } from '../../../app/layouts/auth-layout';
-import { Paths } from '../../../app/router';
+import { Paths } from '../../../constants';
 
 export const RegisterPage = () => {
   return (

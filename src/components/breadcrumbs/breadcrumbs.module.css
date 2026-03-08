@@ -5,23 +5,25 @@
   padding: 8px 12px;
 
   font-family: var(--font-primary);
-  text-decoration: none;
   font-size: 0.875rem;
   font-weight: 600;
+  text-decoration: none;
+  text-transform: capitalize;
 
   border-radius: 10px;
   transition: all 0.2s ease;
+  color: var(--color-text-dim);
 }
 
 .link:hover {
   color: var(--color-text);
 }
 
-.active {
+.link.active {
   color: var(--color-text);
 }
 
 .link span {
-  color: var(--color-text-dim);
   margin: 0 4px;
+  color: var(--color-text-dim);
 }

@@ -1,6 +1,6 @@
 import { LoginForm } from '../../../components/forms/login-form';
 import { AuthLayout } from '../../../app/layouts/auth-layout';
-import { Paths } from '../../../app/router';
+import { Paths } from '../../../constants';
 
 export const LoginPage = () => {
   return (

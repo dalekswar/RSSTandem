@@ -1,8 +1,8 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import styles from './header.module.css';
-import { Paths } from '../../app/router';
 import { HeaderBreadcrumbs } from '../breadcrumbs';
 import { useIsAuth } from '../../redux/hooks/useIsAuth';
+import { Paths } from '../../constants/paths';
 
 export const Header = () => {
   const { pathname } = useLocation();
@@ -13,7 +13,7 @@ export const Header = () => {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <ul className={styles.list}>
-          <li className={`${styles.item} ${styles.itemLogin}`}>
+          <li className={`${styles.itemLogo}`}>
             <NavLink to={Paths.ROOT} className={styles.logo}>
               CodeMind
             </NavLink>

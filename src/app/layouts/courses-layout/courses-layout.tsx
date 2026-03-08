@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import { Paths } from '../../router/paths';
+import { Paths } from '../../../constants';
 
 export const CoursesLayout = () => {
   return (
