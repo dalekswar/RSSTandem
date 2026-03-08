@@ -85,3 +85,6 @@
   background-color: transparent;
   border: none;
 }
+.loginContainer {
+  padding: 8px 16px;
+}

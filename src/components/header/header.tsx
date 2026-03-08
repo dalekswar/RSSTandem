@@ -3,12 +3,16 @@ import styles from './header.module.css';
 import { HeaderBreadcrumbs } from '../breadcrumbs';
 import { useIsAuth } from '../../redux/hooks/useIsAuth';
 import { Paths } from '../../constants/paths';
+import { useGetUserByLoginQuery } from '../../redux/api/usersAPI';
 
 export const Header = () => {
   const { pathname } = useLocation();
-
-  const isBreadcrumbsActive = pathname.startsWith(Paths.COURSES);
   const isAuth = useIsAuth();
+  const { data, isFetching } = useGetUserByLoginQuery(undefined, {
+    skip: !isAuth,
+  });
+  console.log(data);
+  const isBreadcrumbsActive = pathname.startsWith(Paths.COURSES);
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
@@ -44,9 +48,19 @@ export const Header = () => {
           </li>
 
           <li className={`${styles.item} ${styles.itemJoin}`}>
-            <NavLink to={Paths.REGISTER} className={`${styles.link}`}>
-              Join Now
-            </NavLink>
+            {!isFetching && !isAuth && (
+              <NavLink to={Paths.REGISTER} className={`${styles.link}`}>
+                Join Now
+              </NavLink>
+            )}
+            {data && (
+              <NavLink
+                to={Paths.PROFILE}
+                className={({ isActive }) => `${styles.link} ${isActive ? styles.active : ''}`}
+              >
+                {data.login}
+              </NavLink>
+            )}
           </li>
         </ul>
       </nav>

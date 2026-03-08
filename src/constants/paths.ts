@@ -17,6 +17,3 @@ export const Paths = {
   NOT_FOUND: '/not-found',
   OTHER_PATHS: '*',
 } as const;
-
-export const TOPICS_INDEX = 2;
-export const MAX_CRUMBS_DEPTH = 4;
