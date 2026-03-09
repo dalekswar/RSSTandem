@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import styles from './link-button.module.css';
+import classNames from 'classnames';
 
 type LinkButtonProperties = {
   to: string;
@@ -10,7 +11,7 @@ type LinkButtonProperties = {
 
 export const LinkButton = ({ to, children, className = '' }: LinkButtonProperties) => {
   return (
-    <Link to={to} className={`${styles.linkButton} ${className}`.trim()}>
+    <Link to={to} className={classNames(styles.linkButton, className).trim()}>
       {children}
     </Link>
   );

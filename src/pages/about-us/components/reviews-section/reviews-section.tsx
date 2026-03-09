@@ -8,10 +8,11 @@ import { REVIEWS_TEXTS } from '../../constants/texts/reviews-texts';
 import styles from './reviews-section.module.css';
 import titleStyles from '../../../../app/styles/ui/title.module.css';
 import 'swiper/css';
+import classNames from 'classnames';
 
 export const ReviewsSection = () => (
   <section className={styles.reviews}>
-    <h2 className={`${titleStyles.sectionTitle} ${titleStyles['sectionTitle--withLine']}`}>
+    <h2 className={classNames(titleStyles.sectionTitle, titleStyles['sectionTitle--withLine'])}>
       {REVIEWS_TEXTS.title}
     </h2>
     <Swiper

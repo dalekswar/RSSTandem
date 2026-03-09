@@ -4,6 +4,7 @@ import { HeaderBreadcrumbs } from '../breadcrumbs';
 import { useIsAuth } from '../../redux/hooks/useIsAuth';
 import { Paths } from '../../constants/paths';
 import { useGetUserByLoginQuery } from '../../redux/api/usersAPI';
+import classNames from 'classnames';
 
 export const Header = () => {
   const { pathname } = useLocation();
@@ -13,7 +14,7 @@ export const Header = () => {
   });
 
   const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `${styles.link} ${isActive ? styles.active : ''}`;
+    classNames(styles.link, { [styles.active]: isActive });
 
   return (
     <header className={styles.header}>
@@ -40,14 +41,16 @@ export const Header = () => {
           )}
 
           <li
-            className={`${styles.itemCrumbs} ${pathname.startsWith(Paths.COURSES) ? styles.active : ''}`}
+            className={classNames(styles.itemCrumbs, {
+              [styles.active]: pathname.startsWith(Paths.COURSES),
+            })}
           >
             <HeaderBreadcrumbs />
           </li>
 
           <li className={styles.itemAuth}>
             {!isFetching && !isAuth && (
-              <NavLink to={Paths.REGISTER} className={`${styles.link} ${styles.linkJoin}`}>
+              <NavLink to={Paths.REGISTER} className={classNames(styles.link, styles.linkJoin)}>
                 Join Now
               </NavLink>
             )}

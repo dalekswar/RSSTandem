@@ -8,8 +8,7 @@ type Crumb = {
 
 export const useBreadcrumbs = () => {
   const { pathname } = useLocation();
-  const params = useParams();
-  const { courseId, topicId, widgetType, widgetId } = params;
+  const { courseId, topicId, widgetType, widgetId } = useParams();
 
   const crumbs: Crumb[] = [{ name: 'courses', path: Paths.COURSES }];
 

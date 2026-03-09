@@ -2,8 +2,9 @@ import { NavLink, useLocation } from 'react-router-dom';
 import styles from './breadcrumbs.module.css';
 
 import { Fragment } from 'react/jsx-runtime';
-import { Paths } from '../../constants';
 import { useBreadcrumbs } from './hooks/use-breadcrumbs';
+import classNames from 'classnames';
+import { Paths } from '../../constants';
 
 export const HeaderBreadcrumbs = () => {
   const { pathname } = useLocation();
@@ -11,12 +12,15 @@ export const HeaderBreadcrumbs = () => {
   return (
     <>
       {crumbs.map(({ name, path }, index) => {
+        const isLast = index === crumbs.length - 1;
         return (
           <Fragment key={path}>
             {index === 0 ? '' : <span> /</span>}
             <NavLink
               to={path}
-              className={`${styles.link}  ${pathname === path || pathname === `${Paths.COURSES}/${Paths.MY_COURSES}` || pathname === `${Paths.COURSES}/${Paths.ALL_COURSES}` ? styles.active : ''}`}
+              className={classNames(styles.link, {
+                [styles.active]: isLast && pathname.startsWith(Paths.COURSES),
+              })}
             >
               {name}
             </NavLink>
