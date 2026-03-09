@@ -1,5 +1,6 @@
 import { useLocation, useParams } from 'react-router-dom';
 import { Paths } from '../../../constants';
+import type { RouteParams } from '../../../types/route-params';
 
 type Crumb = {
   name: string;
@@ -8,7 +9,7 @@ type Crumb = {
 
 export const useBreadcrumbs = () => {
   const { pathname } = useLocation();
-  const { courseId, topicId, widgetType, widgetId } = useParams();
+  const { courseId, topicId, widgetType, widgetId } = useParams<RouteParams>();
 
   const crumbs: Crumb[] = [{ name: 'courses', path: Paths.COURSES }];
 

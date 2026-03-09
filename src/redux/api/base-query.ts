@@ -5,9 +5,10 @@ import {
   type FetchBaseQueryError,
 } from '@reduxjs/toolkit/query';
 import { logout } from '../reducers';
+import { BASE_URL } from '../../constants';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'http://localhost:4000/',
+  baseUrl: BASE_URL,
   prepareHeaders: (headers) => {
     const token = localStorage.getItem('accessToken');
     if (token) {

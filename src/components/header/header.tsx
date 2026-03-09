@@ -12,7 +12,7 @@ export const Header = () => {
   const { data, isFetching } = useGetUserByLoginQuery(undefined, {
     skip: !isAuth,
   });
-
+  console.log(data);
   const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
     classNames(styles.link, { [styles.active]: isActive });
 
@@ -55,7 +55,7 @@ export const Header = () => {
               </NavLink>
             )}
 
-            {data && (
+            {data?.login && (
               <NavLink to={Paths.PROFILE} className={getNavLinkClass}>
                 <span>{data.login}</span>
                 <div className={styles.userLogo}>{data.login[0]}</div>
