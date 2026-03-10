@@ -17,6 +17,16 @@ export const Header = () => {
   const getNavLinkClass = ({ isActive }: { isActive: boolean }) =>
     classNames(styles.link, { [styles.active]: isActive });
 
+  const hasName = data?.firstName?.trim() || data?.lastName?.trim();
+
+  const fullName = hasName
+    ? `${data?.firstName ?? ''} ${data?.lastName ?? ''}`.trim()
+    : data?.login;
+
+  const initials = hasName
+    ? `${data?.firstName?.[0]?.toUpperCase() ?? ''}${data?.lastName?.[0]?.toUpperCase() ?? ''}`
+    : data?.login?.[0]?.toUpperCase();
+
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
@@ -54,8 +64,8 @@ export const Header = () => {
 
             {data?.login && (
               <NavLink to={Paths.PROFILE} className={getNavLinkClass}>
-                <span>{data.login}</span>
-                <div className={styles.userLogo}>{data.login[0]}</div>
+                <span>{fullName}</span>
+                <div className={styles.userLogo}>{initials}</div>
               </NavLink>
             )}
           </li>
