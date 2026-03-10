@@ -1,0 +1,25 @@
+.profile {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  padding: 100px 20px;
+}
+
+.profileTitle {
+  grid-column: 1 / -1;
+  margin-bottom: 100px;
+
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 800;
+}
+
+@media (width < 769px) {
+  .profile {
+    grid-template-columns: 1fr;
+    padding-top: 50px;
+  }
+
+  .profileTitle {
+    margin-bottom: 50px;
+  }
+}

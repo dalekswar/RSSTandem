@@ -1,0 +1,50 @@
+.avatarSection {
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 1px solid var(--color-line);
+
+  background-color: var(--color-avatar-bg);
+
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--color-accent);
+}
+
+.editBtn {
+  cursor: pointer;
+
+  padding: 10px 20px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+
+  background: transparent;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: inherit;
+
+  transition: var(--transition-normal);
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .editBtn:not(:disabled):hover {
+    border-color: var(--color-accent);
+    background-color: var(--color-button-bg-hover);
+  }
+}
