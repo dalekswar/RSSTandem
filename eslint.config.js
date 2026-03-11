@@ -1,36 +1,58 @@
-import js from '@eslint/js';
-import globals from 'globals';
-import reactHooks from 'eslint-plugin-react-hooks';
-import reactRefresh from 'eslint-plugin-react-refresh';
-import pluginReact from 'eslint-plugin-react';
+import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
-import reactCompiler from 'eslint-plugin-react-compiler';
+import unicorn from 'eslint-plugin-unicorn';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import prettier from 'eslint-plugin-prettier';
+import configPrettier from 'eslint-config-prettier';
 
 export default tseslint.config(
-  { ignores: ['dist'] },
+  eslint.configs.recommended,
+  ...tseslint.configs.recommendedTypeChecked,
+  unicorn.configs.recommended,
+  react.configs.flat.recommended,
+
+  configPrettier,
+
   {
-    extends: [
-      js.configs.recommended,
-      ...tseslint.configs.strict,
-      ...tseslint.configs.stylistic,
-      eslintPluginPrettier,
-    ],
+    ignores: ['dist', 'build', '*.config.*'],
+  },
+
+  {
     files: ['**/*.{ts,tsx}'],
+
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
+
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+
     plugins: {
-      react: pluginReact,
+      prettier,
       'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-      'react-compiler': reactCompiler,
     },
+
+    linterOptions: {
+      noInlineConfig: true,
+      reportUnusedDisableDirectives: 'error',
+    },
+
     rules: {
       ...reactHooks.configs.recommended.rules,
-      ...pluginReact.configs.recommended.rules,
-      ...pluginReact.configs['jsx-runtime'].rules,
+
+      'react/react-in-jsx-scope': 'off',
+      'react/jsx-uses-react': 'off',
+
+      '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/consistent-type-assertions': ['error', { assertionStyle: 'never' }],
+      '@typescript-eslint/member-ordering': 'error',
 
       'react/function-component-definition': [
         'error',
@@ -40,18 +62,28 @@ export default tseslint.config(
         },
       ],
 
-      'no-useless-return': 'error',
+      'unicorn/no-null': 'off',
+      'unicorn/prefer-global-this': 'off',
+      'unicorn/better-regex': 'warn',
+      'unicorn/prevent-abbreviations': 'off',
 
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
-      'react-compiler/react-compiler': 'error',
-      'prettier/prettier': ['error', { endOfLine: 'auto' }],
-      '@typescript-eslint/no-empty-interface': 'error',
-      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-    },
-    settings: {
-      react: {
-        version: 'detect',
-      },
+      'unicorn/filename-case': [
+        'error',
+        {
+          cases: {
+            pascalCase: true,
+            kebabCase: true,
+          },
+        },
+      ],
+
+      'prettier/prettier': [
+        'error',
+        {
+          endOfLine: 'auto',
+        },
+      ],
+      'arrow-body-style': ['error', 'as-needed'],
     },
   }
 );

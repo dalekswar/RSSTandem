@@ -7,9 +7,10 @@
 
 .sectionTitle--withLine::after {
   content: '';
+
   position: absolute;
-  left: 0;
   bottom: -14px;
+  left: 0;
 
   width: 40px;
   height: 3px;

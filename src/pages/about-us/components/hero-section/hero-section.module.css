@@ -1,16 +1,15 @@
 .hero {
   margin-bottom: 40px;
   padding-block: 100px;
-  background: var(--color-hero-bg);
   text-align: center;
+  background: var(--color-hero-bg);
 }
 
 .heroTitle {
   margin-bottom: 16px;
-
   font-size: 42px;
-  line-height: 1.2;
   font-weight: 800;
+  line-height: 1.2;
 }
 
 .description {
@@ -24,14 +23,15 @@
 
 .btnLink {
   display: inline-block;
+
   padding: 16px 32px;
   border-radius: 14px;
-
-  background-color: var(--color-accent);
 
   font-size: 16px;
   font-weight: 800;
   color: var(--color-text-inverse);
+
+  background-color: var(--color-accent);
 
   transition: 0.2s;
 }

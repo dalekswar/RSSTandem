@@ -5,24 +5,28 @@
 }
 
 .formSubmit {
+  cursor: pointer;
+
   width: 100%;
-  background: var(--color-accent);
-  color: var(--color-text-inverse);
-  border: none;
+  margin-top: 10px;
   padding: 16px;
+  border: none;
   border-radius: var(--radius-md);
+
+  font-family: var(--font-primary);
   font-size: 15px;
   font-weight: 800;
-  cursor: pointer;
-  margin-top: 10px;
+  color: var(--color-text-inverse);
+
+  background: var(--color-accent);
+
   transition: all var(--transition-normal);
-  font-family: var(--font-primary);
 }
 
 .formSubmit:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-accent);
   background-color: var(--color-accent-hover);
+  box-shadow: var(--shadow-accent);
 }
 
 .formSubmit:active:not(:disabled) {
@@ -30,7 +34,7 @@
 }
 
 .formSubmit:disabled {
-  background: var(--color-text-dim);
-  opacity: 0.6;
   cursor: wait;
+  opacity: 0.6;
+  background: var(--color-text-dim);
 }

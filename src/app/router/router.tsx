@@ -4,14 +4,6 @@ import { AppLayout } from '../layouts/app-layout/app-layout';
 import { AboutUsPage } from '../../pages/about-us';
 import { CoursesLayout } from '../layouts/courses-layout/courses-layout';
 import CoursesPage from '../../pages/courses/courses-page';
-import {
-  allCoursesLoader,
-  courseInfoLoader,
-  myCoursesLoader,
-  topicLoader,
-  topicsLoader,
-} from '../../api/loaders';
-
 import { WidgetLayout } from '../layouts/widget-layout/widget-layout';
 import { ProfilePage } from '../../pages/profile/profile-page';
 import { LoginPage } from '../../pages/auth/login/login-page';
@@ -56,7 +48,6 @@ export const router = createBrowserRouter([
           {
             path: Paths.ALL_COURSES,
             element: <CoursesPage />,
-            loader: allCoursesLoader,
           },
           {
             path: Paths.MY_COURSES,
@@ -65,14 +56,12 @@ export const router = createBrowserRouter([
                 <CoursesPage />
               </AuthorizedOnlyRoute>
             ),
-            loader: myCoursesLoader,
           },
         ],
       },
       {
         path: Paths.COURSE_INFO,
         element: <LessonPage />,
-        loader: courseInfoLoader,
       },
       {
         path: Paths.TOPICS,
@@ -81,7 +70,6 @@ export const router = createBrowserRouter([
             <LessonPage />
           </AuthorizedOnlyRoute>
         ),
-        loader: topicsLoader,
       },
       {
         path: Paths.TOPIC,
@@ -90,7 +78,6 @@ export const router = createBrowserRouter([
             <LessonPage />
           </AuthorizedOnlyRoute>
         ),
-        loader: topicLoader,
       },
       {
         path: Paths.WIDGET,
