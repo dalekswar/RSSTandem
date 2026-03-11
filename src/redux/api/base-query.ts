@@ -6,13 +6,17 @@ import {
 } from '@reduxjs/toolkit/query';
 import { logout } from '../reducers';
 import { BASE_URL } from '../../constants';
+import type { UserPersonalData } from '../../types';
 
 const baseQuery = fetchBaseQuery({
   baseUrl: BASE_URL,
   prepareHeaders: (headers) => {
     const token = localStorage.getItem('accessToken');
     if (token) {
-      headers.set('Authorization', `Bearer ${JSON.parse(token).accessToken}`);
+      headers.set(
+        'Authorization',
+        `Bearer ${(JSON.parse(token) as Pick<UserPersonalData, 'accessToken'>).accessToken}`
+      );
     }
 
     return headers;

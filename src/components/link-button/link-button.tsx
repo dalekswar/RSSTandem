@@ -9,10 +9,8 @@ type LinkButtonProperties = {
   className?: string;
 };
 
-export const LinkButton = ({ to, children, className = '' }: LinkButtonProperties) => {
-  return (
-    <Link to={to} className={classNames(styles.linkButton, className).trim()}>
-      {children}
-    </Link>
-  );
-};
+export const LinkButton = ({ to, children, className = '' }: LinkButtonProperties) => (
+  <Link to={to} className={classNames(styles.linkButton, className).trim()}>
+    {children}
+  </Link>
+);

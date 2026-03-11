@@ -5,7 +5,7 @@ import { loginSchema } from './login.schema';
 
 import { FormRow } from '../form-row';
 import { AuthForm } from '../auth-form';
-import { useLoginUserMutation } from '../../../redux/api/usersAPI';
+import { useLoginUserMutation } from '../../../redux/api/users-api';
 
 export const LoginForm = () => {
   const [loginUser, { isLoading }] = useLoginUserMutation();

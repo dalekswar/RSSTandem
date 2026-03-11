@@ -1,3 +1,1 @@
-export const TrueFalsePage = () => {
-  return <section className="true-false">True False Page</section>;
-};
+export const TrueFalsePage = () => <section className="true-false">True False Page</section>;

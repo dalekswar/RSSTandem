@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
 
-import { useIsAuth } from '../../redux/hooks/useIsAuth';
+import { useIsAuth } from '../../redux/hooks/use-is-auth';
 import { Paths } from '../../constants/paths';
 
 type Props = {

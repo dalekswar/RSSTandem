@@ -3,7 +3,9 @@ import type { UserPersonalData } from '../../types';
 
 const accessTokenFromStorage = localStorage.getItem('accessToken');
 const initialState: UserPersonalData = {
-  accessToken: accessTokenFromStorage ? JSON.parse(accessTokenFromStorage).accessToken : '',
+  accessToken: accessTokenFromStorage
+    ? (JSON.parse(accessTokenFromStorage) as Pick<UserPersonalData, 'accessToken'>).accessToken
+    : '',
   firstName: '',
   lastName: '',
   email: '',
@@ -43,14 +45,12 @@ const userSlice = createSlice({
   },
   selectors: {
     isAuthSelector: (state) => Boolean(state.accessToken),
-    userDataSelector: (state) => {
-      return {
-        email: state.email,
-        login: state.login,
-        firstName: state.firstName,
-        lastName: state.lastName,
-      };
-    },
+    userDataSelector: (state) => ({
+      email: state.email,
+      login: state.login,
+      firstName: state.firstName,
+      lastName: state.lastName,
+    }),
   },
 });
 

@@ -1,3 +1,1 @@
-export const QuizPage = () => {
-  return <section className="quiz">Quiz Page</section>;
-};
+export const QuizPage = () => <section className="quiz">Quiz Page</section>;

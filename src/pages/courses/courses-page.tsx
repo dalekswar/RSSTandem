@@ -1,4 +1,2 @@
-const CoursesPage = () => {
-  return <section className="courses">Courses Page</section>;
-};
+const CoursesPage = () => <section className="courses">Courses Page</section>;
 export default CoursesPage;

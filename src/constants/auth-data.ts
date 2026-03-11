@@ -1,14 +1,14 @@
 export const LOGIN = {
   MIN_LENGTH: 5,
   MAX_LENGTH: 30,
-  PATTERN: /^[A-Za-z0-9_-]+$/,
+  PATTERN: /^[\w-]+$/,
   PATTERN_MESSAGE: 'Login can contain letters, numbers, _ and - only',
 } as const;
 
 export const PASSWORD = {
   MIN_LENGTH: 8,
   MAX_LENGTH: 30,
-  PATTERN: /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d!@#$&_+.-]+$/,
+  PATTERN: /^(?=.*[A-Z])(?=.*\d)[\w!#$&+.@-]+$/,
   PATTERN_MESSAGE:
     'Password must contain at least one uppercase letter and one number, no spaces or Cyrillic',
 } as const;

@@ -1,3 +1,1 @@
-export const Loader = () => {
-  return <section className="loader">Loading...</section>;
-};
+export const Loader = () => <section className="loader">Loading...</section>;

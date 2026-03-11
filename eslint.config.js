@@ -53,6 +53,8 @@ export default tseslint.config(
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/consistent-type-assertions': ['error', { assertionStyle: 'never' }],
       '@typescript-eslint/member-ordering': 'error',
+      '@typescript-eslint/no-misused-promises': 'off',
+      '@typescript-eslint/consistent-type-assertions': 'off',
 
       'react/function-component-definition': [
         'error',
@@ -66,6 +68,7 @@ export default tseslint.config(
       'unicorn/prefer-global-this': 'off',
       'unicorn/better-regex': 'warn',
       'unicorn/prevent-abbreviations': 'off',
+      'unicorn/prefer-spread': 'off',
 
       'unicorn/filename-case': [
         'error',

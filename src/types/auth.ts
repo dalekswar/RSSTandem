@@ -10,7 +10,7 @@ export type ApiError = {
 };
 
 export type UserPersonalData = Omit<BaseUserData, 'password'> & {
-  accessToken: string | null;
+  accessToken: string;
   firstName: string;
   lastName: string;
 };
@@ -34,7 +34,7 @@ export type AuthMessageResponse = {
 };
 
 export type LoginSuccessResponse = AuthMessageResponse & {
-  access: string;
+  accessToken: string;
 };
 
 export type User = {

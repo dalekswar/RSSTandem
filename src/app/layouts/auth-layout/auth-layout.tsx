@@ -18,24 +18,22 @@ export const AuthLayout = ({
   footerText,
   footerLinkText,
   footerLinkTo,
-}: Props) => {
-  return (
-    <div className={styles.auth}>
-      <section className={styles.authCard}>
-        <div className={styles.authLogo}>CodeMind</div>
+}: Props) => (
+  <div className={styles.auth}>
+    <section className={styles.authCard}>
+      <div className={styles.authLogo}>CodeMind</div>
 
-        <h1 className={styles.authTitle}>{title}</h1>
-        <p className={styles.authSubtitle}>{subtitle}</p>
+      <h1 className={styles.authTitle}>{title}</h1>
+      <p className={styles.authSubtitle}>{subtitle}</p>
 
-        {children}
+      {children}
 
-        <p className={styles.authFooter}>
-          {footerText}{' '}
-          <Link to={footerLinkTo} className={styles.authLink}>
-            {footerLinkText}
-          </Link>
-        </p>
-      </section>
-    </div>
-  );
-};
+      <p className={styles.authFooter}>
+        {footerText}{' '}
+        <Link to={footerLinkTo} className={styles.authLink}>
+          {footerLinkText}
+        </Link>
+      </p>
+    </section>
+  </div>
+);

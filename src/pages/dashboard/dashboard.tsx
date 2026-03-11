@@ -1,3 +1,1 @@
-export const Dashboard = () => {
-  return <section className="dashboard">Dashboard</section>;
-};
+export const Dashboard = () => <section className="dashboard">Dashboard</section>;

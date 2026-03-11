@@ -4,7 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { registrationSchema, type RegistrationFormValues } from './registration.schema';
 import { AuthForm } from '../auth-form';
 import { useNavigate } from 'react-router-dom';
-import { useSignUpUserMutation } from '../../../redux/api/usersAPI';
+import { useSignUpUserMutation } from '../../../redux/api/users-api';
 import { Paths } from '../../../constants';
 import styles from './register-form.module.css';
 export const RegistrationForm = () => {
@@ -18,7 +18,7 @@ export const RegistrationForm = () => {
 
   const onSubmit = async (authData: RegistrationFormValues) => {
     await signUpUser(authData);
-    navigate(Paths.LOGIN);
+    await navigate(Paths.LOGIN);
   };
 
   return (

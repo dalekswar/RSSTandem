@@ -1,3 +1,1 @@
-export const ProfilePage = () => {
-  return <section className="profile">Profile</section>;
-};
+export const ProfilePage = () => <section className="profile">Profile</section>;

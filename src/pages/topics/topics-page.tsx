@@ -1,3 +1,1 @@
-export const TopicsPage = () => {
-  return <section className="topics">Topics Page</section>;
-};
+export const TopicsPage = () => <section className="topics">Topics Page</section>;
