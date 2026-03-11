@@ -23,6 +23,14 @@ export const RegistrationForm = () => {
 
   return (
     <AuthForm onSubmit={handleSubmit(onSubmit)} isLoading={isLoading} submitMessage="Sign Up">
+      <FormRow label="Email" error={errors.email}>
+        <input type="email" id="lastname" placeholder="your@email.com" {...register('email')} />
+      </FormRow>
+
+      <FormRow label="Login" error={errors.login}>
+        <input type="text" id="login" placeholder="SuperUser" {...register('login')} />
+      </FormRow>
+
       <div className={styles.userName}>
         <FormRow label="First Name" error={errors.firstName} isOptional={true}>
           <input type="text" id="firstname" placeholder="Alex" {...register('firstName')} />
@@ -31,13 +39,6 @@ export const RegistrationForm = () => {
           <input type="text" id="email" placeholder="Smith" {...register('lastName')} />
         </FormRow>
       </div>
-      <FormRow label="Email" error={errors.email}>
-        <input type="email" id="lastname" placeholder="your@email.com" {...register('email')} />
-      </FormRow>
-
-      <FormRow label="Login" error={errors.login}>
-        <input type="text" id="login" placeholder="SuperUser" {...register('login')} />
-      </FormRow>
 
       <FormRow label="Password" error={errors.password}>
         <input type="password" id="password" placeholder="••••••••" {...register('password')} />
