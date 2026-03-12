@@ -52,3 +52,8 @@
   color: var(--color-text-dim);
   opacity: 0.5;
 }
+
+.rowLabel span {
+  font-size: 8px;
+  margin-left: 2px;
+}

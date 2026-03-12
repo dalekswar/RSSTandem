@@ -1,8 +1,8 @@
 import { Navigate } from 'react-router-dom';
 
-import { Paths } from './paths';
 import type { ReactNode } from 'react';
 import { useIsAuth } from '../../redux/hooks/useIsAuth';
+import { Paths } from '../../constants/paths';
 type Props = {
   children: ReactNode;
 };

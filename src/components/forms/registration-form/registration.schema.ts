@@ -3,6 +3,8 @@ import { ERROR_MESSAGES, LOGIN, PASSWORD } from '../../../constants/auth-data';
 
 export const registrationSchema = z
   .object({
+    firstName: z.string(),
+    lastName: z.string(),
     email: z.string().email('Invalid email format'),
     login: z
       .string()

@@ -1,4 +1,3 @@
-import { Paths } from '../../app/router/paths';
 import { LinkButton } from '../../components/link-button';
 
 import notFoundAvif from './assets/not-found.avif';
@@ -6,6 +5,7 @@ import notFoundWebp from './assets/not-found.webp';
 import notFoundJpg from './assets/not-found.jpg';
 
 import styles from './not-found-page.module.css';
+import { Paths } from '../../constants';
 
 export const NotFoundPage = () => (
   <section className={styles.notFound}>

@@ -1,28 +1,17 @@
-import { fetchBaseQuery } from '@reduxjs/toolkit/query';
 import { createApi } from '@reduxjs/toolkit/query/react';
 
 import type { ApiError, LoginRequest, SignUpRequest } from '../../types';
 import { singleToast } from '../../utils/toast.util';
 import { auth } from '../reducers';
+import { baseQueryWithAuth } from './base-query';
 
 export const usersApi = createApi({
   reducerPath: 'usersApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:4000/',
-    prepareHeaders: (headers) => {
-      const token = localStorage.getItem('accessToken');
-
-      if (token) {
-        headers.set('Authorization', `Bearer ${token}`);
-      }
-
-      return headers;
-    },
-  }),
+  baseQuery: baseQueryWithAuth,
   endpoints: (builder) => ({
-    getUserByLogin: builder.query({
-      query: (login: string) => ({
-        url: `users/${login}`,
+    getCurrentUser: builder.query({
+      query: () => ({
+        url: `users/me`,
       }),
     }),
 
@@ -62,4 +51,4 @@ export const usersApi = createApi({
   }),
 });
 
-export const { useGetUserByLoginQuery, useSignUpUserMutation, useLoginUserMutation } = usersApi;
+export const { useGetCurrentUserQuery, useSignUpUserMutation, useLoginUserMutation } = usersApi;

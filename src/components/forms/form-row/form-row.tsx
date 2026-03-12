@@ -6,14 +6,15 @@ type Props = {
   children: ReactElement<{ id?: string }>;
   label?: string;
   error?: FieldError;
+  isOptional?: boolean;
 };
 
-export const FormRow = ({ label, error, children }: Props) => {
+export const FormRow = ({ label, error, children, isOptional = false }: Props) => {
   return (
     <div className={styles.row}>
       {label && (
         <label className={styles.rowLabel} htmlFor={children.props.id}>
-          {label}
+          {label} {isOptional ? <span>(optional)</span> : ''}
         </label>
       )}
       {children}

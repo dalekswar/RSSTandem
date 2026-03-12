@@ -1,0 +1,142 @@
+.header {
+  background-color: var(--color-bg);
+  padding: 16px 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 12px;
+}
+
+.logo {
+  color: var(--color-accent);
+  font-family: var(--font-primary);
+  font-size: 24px;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  margin-right: 6px;
+  transition: opacity 0.2s;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+.link {
+  display: block;
+  padding: 8px 16px;
+  font-family: var(--font-primary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  color: var(--color-text-dim);
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-line);
+}
+
+.link:hover {
+  border: 1px solid var(--color-accent);
+  background-color: rgba(56, 189, 248, 0.05);
+  color: var(--color-text);
+}
+
+.link.active {
+  border: 1px solid var(--color-accent);
+  background-color: rgba(56, 189, 248, 0.05);
+  color: var(--color-text);
+}
+
+.linkJoin {
+  margin-left: auto;
+  border: 1px solid var(--color-accent);
+  background-color: rgba(56, 189, 248, 0.05);
+  color: var(--color-text);
+}
+
+.itemCrumbs {
+  display: flex;
+  align-items: center;
+
+  border-radius: 10px;
+  color: var(--color-text-dim);
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-line);
+}
+
+.itemAuth {
+  margin-left: auto;
+}
+.itemAuth a {
+  color: var(--color-text);
+  background-color: rgba(56, 189, 248, 0.05);
+  border: 1px solid var(--color-accent);
+}
+
+.itemCrumbs:hover a {
+  color: var(--color-text);
+}
+.itemCrumbs:hover {
+  background-color: rgba(56, 189, 248, 0.05);
+  border: 1px solid var(--color-accent);
+}
+.link:has(.userLogo) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 12px;
+}
+
+.userLogo {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background-color: var(--color-accent);
+  color: #0b0e14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 10px;
+}
+
+.itemLogo {
+  margin-right: 6px;
+}
+
+.itemLogo .logo {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.itemLogo .logo:hover {
+  background: none;
+  border: none;
+  opacity: 0.8;
+}
+
+.list li.active {
+  border-radius: 10px;
+  border: 1px solid var(--color-accent);
+  background-color: rgba(56, 189, 248, 0.05);
+}
