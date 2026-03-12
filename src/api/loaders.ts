@@ -1,11 +1,12 @@
 import type { LoaderFunctionArgs } from 'react-router-dom';
+import { allCoursesData, myCoursesData } from '../pages/courses/courses-data';
 
 export const allCoursesLoader = async () => {
-  console.log('all courses loader');
+  return allCoursesData;
 };
 
 export const myCoursesLoader = async () => {
-  console.log('my courses loader');
+  return myCoursesData;
 };
 
 export const courseInfoLoader = async (props: LoaderFunctionArgs) => {
@@ -13,7 +14,7 @@ export const courseInfoLoader = async (props: LoaderFunctionArgs) => {
 };
 
 export const topicsLoader = async () => {
-  console.log(`topics loader`);
+  console.log('topics loader');
 };
 
 export const topicLoader = async (props: LoaderFunctionArgs) => {
