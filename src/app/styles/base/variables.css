@@ -5,6 +5,10 @@
   --color-card-bg: rgba(255, 255, 255, 0.02);
   --color-card-bg-hover: rgba(255, 255, 255, 0.04);
   --color-input-bg: rgba(0, 0, 0, 0.2);
+  --color-input-bg-profile: rgba(255, 255, 255, 0.03);
+  --color-input-bg-profile-active: rgba(56, 189, 248, 0.02);
+  --color-avatar-bg: #1e293b;
+  --color-button-bg-hover: rgba(255, 255, 255, 0.05);
 
   /* ===== TEXT ===== */
   --color-text: #f1f5f9;
