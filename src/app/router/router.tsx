@@ -18,7 +18,7 @@ import { LoginPage } from '../../pages/auth/login/login-page';
 import { RegisterPage } from '../../pages/auth/register/register-page';
 import { NotFoundPage } from '../../pages/not-found/not-found-page';
 import { LessonPage } from '../../pages/lesson';
-import { CourseInfoPage } from '../../pages/course-info/course-info-page';
+import { CourseInfoPage } from '../../pages/course-info';
 import { Dashboard } from '../../pages/dashboard';
 import { AlreadyLoggedInRoute } from './public-only-route';
 import { AuthorizedOnlyRoute } from './protected-route';

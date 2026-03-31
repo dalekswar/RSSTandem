@@ -5,9 +5,9 @@ import { Paths } from '../../../../constants';
 
 import styles from './course-sidebar.module.css';
 
-type SidebarProperties = Omit<Topic, 'id'>;
+type Props = Omit<Topic, 'id'>;
 
-export const CourseSidebar = ({ title, complexity, exercisesCount }: SidebarProperties) => (
+export const CourseSidebar = ({ title, complexity, exercisesCount }: Props) => (
   <aside className={styles.sidebarCard}>
     <h3 className={styles.sidebarTitle}>{title}</h3>
     <div className={styles.paramRow}>

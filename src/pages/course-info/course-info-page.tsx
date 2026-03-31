@@ -8,9 +8,9 @@ import { MOCK_COURSE } from './model/mock-course';
 
 import styles from './course-info-page.module.css';
 
-export const CourseInfoPage = () => {
-  const course = MOCK_COURSE;
+const course = MOCK_COURSE;
 
+export const CourseInfoPage = () => {
   const [activeTopicId, setActiveTopicId] = useState(course.topics[0]?.id);
 
   const activeTopic = course.topics.find((topic) => topic.id === activeTopicId) ?? course.topics[0];
