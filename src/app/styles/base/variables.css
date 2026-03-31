@@ -9,6 +9,7 @@
   --color-input-bg-profile-active: rgba(56, 189, 248, 0.02);
   --color-avatar-bg: #1e293b;
   --color-button-bg-hover: rgba(255, 255, 255, 0.05);
+  --color-tag-bg: rgba(56, 189, 248, 0.1);
 
   /* ===== TEXT ===== */
   --color-text: #f1f5f9;
@@ -32,6 +33,7 @@
   /* ===== SHADOWS ===== */
   --shadow-main: 0 40px 100px -20px rgba(0, 0, 0, 0.5);
   --shadow-accent: 0 10px 20px rgba(56, 189, 248, 0.2);
+  --shadow-diff-bar: 0 0 8px rgba(56, 189, 248, 0.5);
 
   /* ===== ANIMATIONS ===== */
   --transition-fast: 0.2s ease;
