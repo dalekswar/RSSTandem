@@ -1,0 +1,10 @@
+.topicsPage {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: 260px 1fr;
+  padding-block: 80px;
+
+  @media (width < 769px) {
+    grid-template-columns: 1fr;
+  }
+}

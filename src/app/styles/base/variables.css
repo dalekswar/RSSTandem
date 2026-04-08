@@ -9,6 +9,8 @@
   --color-input-bg-profile-active: rgba(56, 189, 248, 0.02);
   --color-avatar-bg: #1e293b;
   --color-button-bg-hover: rgba(255, 255, 255, 0.05);
+  --color-button-topics: rgba(56, 189, 248, 0.1);
+  --color-icon-bg: #161b22;
   --color-tag-bg: rgba(56, 189, 248, 0.1);
   --color-course-bg: rgba(255, 255, 255, 0.02);
   --color-topic-bg: rgba(255, 255, 255, 0.02);
@@ -25,7 +27,7 @@
   --color-accent: #38bdf8;
   --color-accent-hover: #7dd3fc;
   --color-line: rgba(255, 255, 255, 0.08);
-  --color-success: #10b981;
+  --color-success: #22c55e;
   --color-error: #ef4444;
   --color-warning: #f59e0b;
 

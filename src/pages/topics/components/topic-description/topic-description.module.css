@@ -1,0 +1,18 @@
+.topic {
+  margin-bottom: 30px;
+  padding: 32px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-xl);
+
+  background-color: var(--color-card-bg);
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.5;
+}

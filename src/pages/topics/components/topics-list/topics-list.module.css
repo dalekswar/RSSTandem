@@ -1,0 +1,40 @@
+.title {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.topicsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.topicsBtn {
+  cursor: pointer;
+
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-radius: var(--radius-md);
+
+  background-color: transparent;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-dim);
+  text-align: left;
+
+  transition: var(--transition-normal);
+}
+
+.topicsBtn.active {
+  background-color: var(--color-button-topics);
+  color: var(--color-accent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .topicsBtn:not(.active):hover {
+    background-color: var(--color-button-bg-hover);
+    color: var(--color-text);
+  }
+}
