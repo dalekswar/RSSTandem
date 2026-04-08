@@ -1,6 +1,6 @@
 import type { CourseLevel } from './course-level';
 
-export type CourseCard = {
+export type Course = {
   id: string;
   slug: string;
   title: string;

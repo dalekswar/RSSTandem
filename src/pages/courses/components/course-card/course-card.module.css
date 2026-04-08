@@ -1,0 +1,103 @@
+.courseCard {
+  display: flex;
+  flex-direction: column;
+  min-height: 350px;
+  padding: 32px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-xl);
+
+  background-color: var(--color-card-bg);
+
+  color: inherit;
+
+  transition: var(--transition-slow);
+}
+
+.tag {
+  align-self: flex-start;
+  margin-bottom: 24px;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+
+  background-color: var(--color-tag-bg);
+
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.title {
+  margin-bottom: 30px;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.description {
+  margin-bottom: 30px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-dim);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.params {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-line);
+
+  font-size: 13px;
+}
+
+.difficultyWrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.difficulty {
+  margin-left: 10px;
+  color: var(--color-text-dim);
+}
+
+.diffBar {
+  width: 3px;
+  height: 12px;
+  border-radius: 4px;
+  background-color: var(--color-line);
+}
+
+.diffBar.filled {
+  background-color: var(--color-accent);
+  box-shadow: var(--shadow-diff-bar);
+}
+
+.tasksCount {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .courseCard:hover {
+    transform: translateY(-6px);
+    border-color: var(--color-accent);
+    background: var(--color-card-bg-hover);
+  }
+}

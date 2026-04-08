@@ -1,6 +1,6 @@
-import type { CourseCard } from './types';
+import type { Course } from './types';
 
-export const MOCK_COURSES: CourseCard[] = [
+export const MOCK_COURSES: Course[] = [
   {
     id: 'javascript',
     slug: 'javascript',
