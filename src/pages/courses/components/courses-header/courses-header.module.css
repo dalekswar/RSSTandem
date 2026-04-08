@@ -1,0 +1,14 @@
+.coursesPageTitle {
+  margin-bottom: 15px;
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.coursesPageIntroduction {
+  max-width: 600px;
+  margin-bottom: 50px;
+
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--color-text-dim);
+}
